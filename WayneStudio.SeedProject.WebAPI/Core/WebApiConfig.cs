@@ -7,6 +7,10 @@ namespace WayneStudio.SeedProject.WebAPI.Core
     {
         public static void Register(HttpConfiguration config)
         {
+            // attribute routing
+            config.MapHttpAttributeRoutes();
+
+            // convention-based routing.
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -17,6 +21,8 @@ namespace WayneStudio.SeedProject.WebAPI.Core
                 = PreserveReferencesHandling.None;
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            config.EnsureInitialized();
         }
     }
 }

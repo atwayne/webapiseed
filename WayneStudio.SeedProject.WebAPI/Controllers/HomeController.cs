@@ -11,5 +11,12 @@ namespace WayneStudio.SeedProject.WebAPI.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, "hello world");
         }
+
+        [HttpGet]
+        [Route("home/{productName}/value")]
+        public HttpResponseMessage GetValueByProductName(string productName)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, productName.ToUpper());
+        }
     }
 }
